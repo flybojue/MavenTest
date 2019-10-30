@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="suiteName_MavenTest" parallel="tests" thread-count="1">
+    <test name="Test_Baidu">
+        <classes>
+            <!--name:要执行java类的名称(路径)-->
+            <class name="cases.Test_Baidu">
+                <methods>
+                    <include name="loginBrowser"></include>
+                    <!--<include name="test"></include>-->
+                </methods>
+            </class>
+            <parameter name="url" value="http://www.baidu.com"></parameter>
+            <parameter name="searchWords" value="abcd"></parameter>
+        </classes>
+    </test>
+
+    <!--调用extentx下的ExtentTestNGITestListener方法，将默认的listener替换成extentx-->
+    <listeners>
+        <listener class-name="extentx.ExtentTestNGITestListener"></listener>
+    </listeners>
+</suite>
